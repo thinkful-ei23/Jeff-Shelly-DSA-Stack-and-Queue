@@ -1,7 +1,7 @@
 class _Node {
     constructor(data, next) {
         this.data = data;
-        this.next = null;
+        this.next = next;
     }
 }
 
@@ -42,19 +42,25 @@ class Stack {
 }
 
 function peek(stack) {
-    if (!stack.top) {
-        return;
-    } else {
-        console.log(stack.top.data);
-    }
+    return stack.top;
 }
 
+// function display(stack, currentNode = stack.top) {
+//     if (currentNode.next === null) {
+//         return currentNode.data;
+//     } else {
+//         return currentNode.data + ' ' + display(stack, currentNode.next);
+//     }
+// }
+
 function display(stack) {
-    while(iDontKnow) {
-        if (!stack.top) {
-        return;
-    }
-    console.log(stack.top.data)
+    let currNode = stack.top;
+
+    while (currNode !== null) {
+
+        console.log(currNode.data);
+
+        currNode = currNode.next;
     }
 }
 
@@ -63,16 +69,18 @@ function display(stack) {
 function main() {
     const starTrek = new Stack();
     starTrek.push('Kirk');
-    console.log(JSON.stringify(starTrek));
+    // console.log(JSON.stringify(starTrek));
     starTrek.push('Spock');
-    console.log(JSON.stringify(starTrek));
+    // console.log(JSON.stringify(starTrek));
     starTrek.push('McCoy');
-    console.log(JSON.stringify(starTrek));
+    // console.log(JSON.stringify(starTrek));
     starTrek.push('Scotty');
-    starTrek.pop('Scotty');
-    console.log(JSON.stringify(starTrek));
+    // console.log(JSON.stringify(starTrek));
+    starTrek.pop();
+    starTrek.pop();
 
-    peek(starTrek);
+    console.log(JSON.stringify(starTrek));
+    display(starTrek);
 
 }
 
